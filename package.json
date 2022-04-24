@@ -1,0 +1,22 @@
+{
+  "name": "ecomercerapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hassanAjmal531/EcommerceWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hassanAjmal531/EcommerceWebsite/issues"
+  },
+  "homepage": "https://github.com/hassanAjmal531/EcommerceWebsite#readme",
+  "dependencies": {
+    "express-generator": "^4.16.1"
+  }
+}
