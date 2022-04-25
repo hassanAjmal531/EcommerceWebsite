@@ -5,7 +5,7 @@ module.exports = (err, req, res, next) =>{
     err.message = err.message || "internalserver error";
 
     res.status(err.statusCode).json(
-        {success: true,
+        {success: false,
         error: err,
         message: err.message
     }

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {registerUser, showAllUsers} = require("../controllers/usercontroller");
+const {registerUser, showAllUsers, login} = require("../controllers/usercontroller");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.route("/Register").get(registerUser);
 router.route("/users").get(showAllUsers);
+router.route("/login").get(login);
 
 
 module.exports = router;

@@ -4,7 +4,8 @@ const User = require("../models/userModel");
 
 exports.registerUser = asyncErrorHandler(async(req, res, next)=>{
     console.log(req.body);
-    const user = await User.create(req.body)
+    const user = await User.create(req.body);
+    const token = user.getJWTToken();
 
     if(!user){
         return next(new ErrorHandler("internal server error", 500));
@@ -12,11 +13,11 @@ exports.registerUser = asyncErrorHandler(async(req, res, next)=>{
     }
     res.status(200).json({
         status: true,
-        user
+        token
     })
 });
 
-exports.showAllUsers = asyncErrorHandler((req, res, next)=>{
+exports.showAllUsers = asyncErrorHandler(async(req, res, next)=>{
     const users = await User.find();
     if(!users){
         return next(new ErrorHandler("internal server error", 500));
@@ -29,7 +30,7 @@ exports.showAllUsers = asyncErrorHandler((req, res, next)=>{
 
 });
 
-exports.findUser = asyncErrorHandler((req, res, next)=>{
+exports.findUser = asyncErrorHandler(async (req, res, next)=>{
     const user= await User.findById({id: req.params.id});
     if(!user){
         return next(new ErrorHandler("no user found", 404));
@@ -41,7 +42,7 @@ exports.findUser = asyncErrorHandler((req, res, next)=>{
     })
 });
 
-exports.updateuser = asyncErrorHandler((req, res, next)=>{
+exports.updateuser = asyncErrorHandler(async (req, res, next)=>{
     const user= await User.findById({id: req.params.id});
     if(!user){
         return next(new ErrorHandler("no user found", 404));
@@ -56,4 +57,21 @@ exports.updateuser = asyncErrorHandler((req, res, next)=>{
         status: true,
         user
     })
+});
+
+exports.login = asyncErrorHandler(async (req, res, next)=>{
+    const {email, password} = req.body;
+    if(!email || !password) return next(new ErrorHander("please enter email and password ", 400));
+    const user = User.findOne({email}).select("+password");
+    if(!user) return next(new ErrorHander("please enter email and password ", 401));
+    
+    if( !user.comparepasswords(password)) return next(new ErrorHander("please enter email and password ", 401));
+
+    const token = user.getJWTToken();
+
+    res.status(200).json({
+        status: true,
+        token
+    })
+
 });
