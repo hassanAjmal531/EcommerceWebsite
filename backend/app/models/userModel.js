@@ -28,7 +28,7 @@ const user = new mongoose.Schema({
     resetPassExp: Date
 
 });
-
+const jwtSecret = "asjksjdasdkxzcsvhjahdkjshadkcvsakd";
 user.pre("save", async function(next){
    
     if(!this.isModified("password")){
@@ -43,7 +43,7 @@ user.methods.getJWTToken = function(){
     })
 }
 
-user.methods.comparepasswords= async function(password){
+user.methods.comparepasswords = function(password){
     return bcrpyt.compare(password, this.password);
 }
 module.exports = mongoose.model("user", user);

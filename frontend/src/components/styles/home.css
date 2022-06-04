@@ -1,0 +1,129 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    height: 80vmin;
+    background-color: rgb(42, 42, 204);
+    clip-path: polygon(49% 100%, 100% 83%, 100% 0, 0 0, 0 83%);
+    
+
+
+}
+.home h1{
+    color: white;
+    font-size: 80px;
+    font-style: italic;
+    margin-bottom: 0%;
+
+}
+
+.home p{
+    color: white;
+    font-size: 30px;
+    font-style: italic;
+    margin-bottom: 3%;
+}
+
+.home a button{
+    background-color: rgb(201, 205, 232);
+    width: 200px;
+    height: 70px;
+    border-radius: 5px;
+    border: 1px solid white;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+  
+}
+
+.home a button:hover{
+    background-color:rgb(42, 42, 204) ;
+}
+
+.products{
+    min-height: 80vmin;
+    padding-top: 5vh;
+    display: flex;
+    
+    flex-direction: column;
+
+}
+
+.products > h1{
+    margin: auto;
+    font-size: 60px;
+    border-bottom: 1px solid black;
+    color: rgb(42, 42, 42);
+
+
+}
+.productDisplay{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+@media screen and (max-width: 600px){
+
+    .home{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+        height: 80vmin;
+        background-color: rgb(42, 42, 204);
+        clip-path: polygon(49% 100%, 100% 83%, 100% 0, 0 0, 0 83%);
+    
+    
+    }
+    .home h1{
+        color: white;
+        font-size: 40px;
+        font-style: italic;
+        margin-bottom: 0%;
+    
+    }
+    
+    .home p{
+        color: white;
+        font-size: 20px;
+        font-style: italic;
+        margin-bottom: 3%;
+    }
+    
+    .home a button{
+        background-color: rgb(201, 205, 232);
+        width: 150px;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid white;
+        font-size: smaller;
+        font-weight: bold;
+        color: white;
+      
+    }
+    .products{
+        min-height: 80vmin;
+        padding-top: 5vh;
+        display: flex;
+        
+        flex-direction: column;
+    
+    }
+    
+    .products>  h1{
+        margin: auto;
+        font-size: 50px;
+        border-bottom: 1px solid black;
+        color: rgb(42, 42, 42);
+    
+    
+    }
+
+}
